@@ -1,0 +1,22 @@
+{
+    "name": "really4you/xing-wen",
+    "description": "xing-wen API",
+    "authors": [
+        {
+            "name": "Zhong_chou",
+            "email": "279057911@qq.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "really4you\\Xingwen\\": "src"
+        }
+    },
+    "require": {
+        "php": ">=7.2",
+        "guzzlehttp/guzzle": "^7.1"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^8.5"
+    }
+}
