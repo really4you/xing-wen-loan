@@ -21,7 +21,7 @@ class FileNotify extends Loan58
     public function send()
     {
         $params = $this->buildRequest();
-        $response =  $this->postJson($this->buildUrl(), $params,$this->defaultHeader());
+        $response =  $this->postJson($this->buildUrl(), $params, $this->defaultHeader());
 
         return $response;
 

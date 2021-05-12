@@ -5,6 +5,7 @@ namespace really4you\Xingwen\Api\Loan58;
 use really4you\Xingwen\Contracts\StrategyInterface;
 use really4you\Xingwen\Support\Config;
 use really4you\Xingwen\Traits\HasHttpRequest;
+use really4you\Xingwen\Api\Loan58\Config as LoanConfig;
 
 abstract class Loan58 implements StrategyInterface
 {
@@ -131,19 +132,6 @@ abstract class Loan58 implements StrategyInterface
         return $this;
     }
 
-//    public function getLoan58Config()
-//    {
-//        return $this->config;
-//    }
-//
-//
-//    public function setLoan58Config(Config $config)
-//    {
-//        $this->config = $config;
-//
-//        return $this;
-//    }
-
     public function setGuzzleOptions($options)
     {
         $this->options = $options;
@@ -162,6 +150,8 @@ abstract class Loan58 implements StrategyInterface
 
         if (is_file($source)) {
             $source = include $source;
+        }else{
+            $source = LoanConfig::getInstance()->getConfig();
         }
 
         return $source['defaults_loan58'] ?? null;
