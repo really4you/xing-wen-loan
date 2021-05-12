@@ -27,10 +27,21 @@ abstract class Loan58 implements StrategyInterface
      */
     protected $timeout;
 
+    /**
+     *
+     * @var
+     */
+    protected $configPath;
+
 
     public function __construct(Config $config)
     {
         $this->config = $config;
+    }
+
+    public function setConfigPath($path)
+    {
+        $this->configPath = $path;
     }
 
     public function getBaseUri()
@@ -147,7 +158,7 @@ abstract class Loan58 implements StrategyInterface
 
     protected function getLoan58DefaultConfig()
     {
-        $source = realpath(dirname(dirname(__DIR__)).'/config.php');
+        $source = $this->configPath ? : realpath(dirname(dirname(__DIR__)).'/config.php');
 
         if (is_file($source)) {
             $source = include $source;
